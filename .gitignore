@@ -1,0 +1,24 @@
+# Xcode
+.DS_Store
+build/
+DerivedData/
+*.xcodeproj
+*.xcworkspace
+*.xcuserstate
+project.xcworkspace/
+xcuserdata/
+
+# App packaging
+Payload/
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# Fastlane & Signing
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots
+fastlane/test_output
+*.p12
+*.mobileprovision
+*.cer

@@ -1,0 +1,90 @@
+name: FamilyGuard
+options:
+  bundleIdPrefix: com.familyguard
+  projectFormat: xcode15_3
+  deploymentTarget:
+    iOS: "16.0"
+  createIntermediateGroups: true
+
+settings:
+  base:
+    SWIFT_VERSION: "5.0"
+    TARGETED_DEVICE_FAMILY: "1,2"
+    CODE_SIGNING_ALLOWED: NO
+    CODE_SIGNING_REQUIRED: NO
+    CODE_SIGN_IDENTITY: ""
+    DEVELOPMENT_TEAM: ""
+
+targets:
+  FamilyGuard:
+    type: application
+    platform: iOS
+    sources:
+      - path: FamilyGuard
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.familyguard.FamilyGuard
+        INFOPLIST_KEY_CFBundleDisplayName: FamilyGuard
+        INFOPLIST_KEY_UILaunchScreen_Generation: YES
+        GENERATE_INFOPLIST_FILE: YES
+        CURRENT_PROJECT_VERSION: "1"
+        MARKETING_VERSION: "1.0"
+    entitlements:
+      path: FamilyGuard/FamilyGuard.entitlements
+    dependencies:
+      - target: DeviceActivityMonitorExtension
+      - target: ShieldConfigurationExtension
+      - target: ShieldActionExtension
+      - target: DeviceActivityReportExtension
+
+  DeviceActivityMonitorExtension:
+    type: app-extension
+    platform: iOS
+    sources:
+      - path: DeviceActivityMonitorExtension
+    info:
+      path: DeviceActivityMonitorExtension/Info.plist
+    entitlements:
+      path: DeviceActivityMonitorExtension/DeviceActivityMonitorExtension.entitlements
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.familyguard.FamilyGuard.DeviceActivityMonitorExtension
+
+  ShieldConfigurationExtension:
+    type: app-extension
+    platform: iOS
+    sources:
+      - path: ShieldConfigurationExtension
+    info:
+      path: ShieldConfigurationExtension/Info.plist
+    entitlements:
+      path: ShieldConfigurationExtension/ShieldConfigurationExtension.entitlements
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.familyguard.FamilyGuard.ShieldConfigurationExtension
+
+  ShieldActionExtension:
+    type: app-extension
+    platform: iOS
+    sources:
+      - path: ShieldActionExtension
+    info:
+      path: ShieldActionExtension/Info.plist
+    entitlements:
+      path: ShieldActionExtension/ShieldActionExtension.entitlements
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.familyguard.FamilyGuard.ShieldActionExtension
+
+  DeviceActivityReportExtension:
+    type: app-extension
+    platform: iOS
+    sources:
+      - path: DeviceActivityReportExtension
+    info:
+      path: DeviceActivityReportExtension/Info.plist
+    entitlements:
+      path: DeviceActivityReportExtension/DeviceActivityReportExtension.entitlements
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.familyguard.FamilyGuard.DeviceActivityReportExtension
